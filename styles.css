@@ -3,3 +3,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.nav__container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
