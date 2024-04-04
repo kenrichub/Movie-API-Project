@@ -1,20 +1,33 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
 
+li {
+  list-style: none;
+}
 
 .nav__container {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .nav__links {
-    display: flex;
+  display: flex;
+}
+
+.nav__link {
+  margin-left: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
 }
