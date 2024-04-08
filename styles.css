@@ -51,6 +51,12 @@ li {
   max-width: 1200px;
 }
 
+.search__label {
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
 .search__bar {
   display: flex;
   justify-content: center;
