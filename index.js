@@ -1,26 +1,31 @@
 // http://www.omdbapi.com/?apikey=1ee8e7af&/
 
-function logSubmit(event) {
-  event.preventDefault();
-  console.log(event);
-  console.log(log)
-}
+// const searchInput = document.querySelector("[data-search]");
+// searchInput.addEventListener("input", (e) => {
+//   const value = e.target.value.toLowerCase();
+//   console.log(value);
+// });
 
 const form = document.getElementById("form");
-const log = document.getElementById("search");
-form.addEventListener("submit", logSubmit);
+form.addEventListener("submit", searchSubmit);
+const log = document.getElementById("search").value;
 
-async function main() {
-  const data = await fetch(`http://www.omdbapi.com/?apikey=1ee8e7af&s=big`);
+function searchSubmit (event) {
+  event.preventDefault();
+  console.log(log);
+}
+
+
+async function searchMovie() {
+  const data = await fetch(`http://www.omdbapi.com/?apikey=1ee8e7af&s=avatar`);
   const movieData = await data.json();
   console.log(movieData);
   const movieWrapperEl = document.querySelector(".movie__wrapper");
-  movieWrapperEl.innerHTML = movieData.Search
-    .map((Search) => movieHTML(Search))
-    .join("");
+  movieWrapperEl.innerHTML = movieData.Search.map((Search) =>
+    movieHTML(Search)
+  ).join("");
 }
-
-main();
+searchMovie();
 
 function movieHTML(Search) {
   return ` <div class="movie">
