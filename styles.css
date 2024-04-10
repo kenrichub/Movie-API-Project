@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
   padding: 0;
@@ -12,7 +12,7 @@ a {
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -20,8 +20,19 @@ li {
 }
 
 nav {
-  background-color: navy;
+  background-color: rgba(0, 0, 128, 0.819);
 }
+
+.container {
+  padding: 60px;
+}
+
+.row {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+    
 
 .nav__container {
   width: 100%;
@@ -53,7 +64,7 @@ nav {
 
 .nav__link {
   color: white;
-  margin-left: 16px;
+  margin-left: 20px;
   font-size: 16px;
   font-weight: bold;
 }
@@ -73,11 +84,15 @@ nav {
   color: white;
 }
 
+form {
+  max-width: 480px;
+  width: 100%;
+}
+
 .search__bar {
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 480px;
   position: relative;
 }
 
@@ -91,11 +106,45 @@ nav {
 
 .fa-magnifying-glass {
   border: none;
-  color:navy;
+  color: navy;
   background-color: transparent;
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   font-size: 24px;
+}
+
+.search__heading {
+  padding-bottom: 30px;
+}
+
+.movie__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie {
+  width: calc(100% / 3);
+  padding: 20px 40px 20px 0;
+}
+
+.movie__img {
+  max-width: 250px;
+  width: 100%;
+}
+
+.movie__title{
+  margin-top: 8px
+}
+
+.movie__year {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.movie__id {
+  font-size: 14px;
+  margin-top: 8px;
 }
