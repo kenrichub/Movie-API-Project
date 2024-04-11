@@ -8,16 +8,14 @@
 
 const form = document.getElementById("form");
 form.addEventListener("submit", searchSubmit);
-const log = document.getElementById("search").value;
 
-function searchSubmit (event) {
+function searchSubmit(event) {
   event.preventDefault();
-  console.log(log);
 }
 
-
 async function searchMovie() {
-  const data = await fetch(`http://www.omdbapi.com/?apikey=1ee8e7af&s=avatar`);
+  const log = document.getElementById("search").value;
+  const data = await fetch(`http://www.omdbapi.com/?apikey=1ee8e7af&s=${log}`);
   const movieData = await data.json();
   console.log(movieData);
   const movieWrapperEl = document.querySelector(".movie__wrapper");

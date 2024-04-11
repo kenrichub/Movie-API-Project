@@ -27,10 +27,10 @@
           </div>
           <div class="search__wrapper" data-search>
             <label class="search__label" for="search">Browse Movies</label>
-            <form id="form">  
+            <form id="form" onsubmit="searchMovie()">  
               <div class="search__bar">
                 <input type="search" id="search" class="search__input" placeholder="search Movie Title">
-                <i class="fas fa-magnifying-glass" onclick=""></i>            
+                <i class="fas fa-magnifying-glass" onclick="searchMovie()"></i>            
               </div>
             </form>
           </div>
