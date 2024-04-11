@@ -13,15 +13,25 @@ function searchSubmit(event) {
   event.preventDefault();
 }
 
+const noSearch = document.querySelector(".search__none")
+const searchResults = document.querySelector(".search__heading")
+
 async function searchMovie() {
   const log = document.getElementById("search").value;
   const data = await fetch(`http://www.omdbapi.com/?apikey=1ee8e7af&s=${log}`);
   const movieData = await data.json();
-  console.log(movieData);
+  console.log(movieData)
+
   const movieWrapperEl = document.querySelector(".movie__wrapper");
-  movieWrapperEl.innerHTML = movieData.Search.map((Search) =>
-    movieHTML(Search)
-  ).join("");
+  if (movieData) {
+    movieWrapperEl.innerHTML = movieData.Search.map((Search) =>
+      movieHTML(Search)
+    ).join("");
+  } else {
+    noSearch.classList.remove("search__none")
+    noSearch.classList += " no__search";
+  }
+  searchResults.innerHTML += ` for ${log}:`
 }
 searchMovie();
 
