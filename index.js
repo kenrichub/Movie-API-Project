@@ -27,7 +27,7 @@ async function searchMovie() {
     movieWrapperEl.innerHTML = movieData.Search.map((Search) =>
       movieHTML(Search)
     ).join("");
-  } else {
+  } else if (movieData !== true) {
     noSearch.classList.remove("search__none")
     noSearch.classList += " no__search";
   }
