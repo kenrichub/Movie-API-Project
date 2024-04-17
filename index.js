@@ -13,27 +13,41 @@ function searchSubmit(event) {
   event.preventDefault();
 }
 
-const noSearch = document.querySelector(".search__none")
-const searchResults = document.querySelector(".search__heading")
+const noSearch = document.querySelector(".search__none");
+const searchResults = document.querySelector(".search__heading");
+
+function toggleSearchOn() {
+  noSearch.classList.add("search__none");
+}
+function toggleSearchOff() {
+  noSearch.classList.remove("search__none");
+}
+
+let movieData = {};
 
 async function searchMovie() {
   const log = document.getElementById("search").value;
   const data = await fetch(`http://www.omdbapi.com/?apikey=1ee8e7af&s=${log}`);
-  const movieData = await data.json();
-  console.log(movieData)
-
+  movieData = await data.json();
+  
   const movieWrapperEl = document.querySelector(".movie__wrapper");
-  if (movieData) {
+  
+  
+  if (movieData.Response === "False") {
+    movieData = {};
+    movieWrapperEl.innerHTML = '';
+    console.log(movieData);
+    toggleSearchOff();
+    noSearch.classList += " no__search";
+  } else if (movieData.Response === "True") {
     movieWrapperEl.innerHTML = movieData.Search.map((Search) =>
       movieHTML(Search)
     ).join("");
-  } else if (movieData !== true) {
-    noSearch.classList.remove("search__none")
-    noSearch.classList += " no__search";
+    toggleSearchOn();
   }
-  searchResults.innerHTML += ` for ${log}:`
+  searchResults.innerHTML = `Search Results for ${log}:`;
 }
-searchMovie();
+// searchMovie();
 
 function movieHTML(Search) {
   return ` <div class="movie">
